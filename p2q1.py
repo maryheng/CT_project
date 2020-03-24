@@ -14,3 +14,8 @@
 def get_route(p, v, flags):
   # code here
   return ["F002", "F009", "F010"]
+
+
+def get_distance(x1,x2,y1,y2):
+  distance = ((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1))**(1/2)
+  return distance
