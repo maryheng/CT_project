@@ -13,12 +13,21 @@
 
 def get_route(p, v, flags):
   # code here
+  output = []
+  current_point = 0
+  flag_pool = []
+  #idk hahahha
+  while (current_point < p):
+    #insert function? 
+    currentpoint = current_point#filler
+
   return ["F002", "F009", "F010"]
 
 #Gets Euclidean distance between 2 flags based on their coordinates
 def get_distance(x1,x2,y1,y2):
   distance = ((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1))**(1/2)
   return distance
+
 #gets points gained per distance AKA effieciency 
 def get_points_per_distance(distance, points):
   return points/distance
