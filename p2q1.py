@@ -15,8 +15,9 @@ def get_route(p, v, flags):
   # code here
   output = []
   output = nn_v1(p, flags)
+  output = two_opt(output)
+  output = deflag(output)
   print(output)
-
   return output
 
 #Gets Euclidean distance between 2 flags based on their coordinates
@@ -58,7 +59,7 @@ def nn_v1(p, flags):
       i+=1
     current_coord = [flags[chosen_i][2], flags[chosen_i][3]]
     current_point += float(flags[chosen_i][1])
-    output.append(flags[chosen_i][0])
+    output.append(flags[chosen_i])
     flags.pop(chosen_i)
   
   return output
@@ -82,4 +83,12 @@ def two_opt(route):
 
 def get_route_distance(route):
   output = 0
+  for i in range(len(route)-1):
+    output += get_distance(route[i][2], route[i][3], route[i+1][2], route[i+1][3])
+  return output
+
+def deflag(flags):
+  output = []
+  for flag in flags:
+    output.append(flag[0])
   return output
