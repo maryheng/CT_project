@@ -62,3 +62,24 @@ def nn_v1(p, flags):
     flags.pop(chosen_i)
   
   return output
+
+#code from http://pedrohfsd.com/2017/08/09/2opt-part1.html
+def two_opt(route):
+     best = route
+     improved = True
+     while improved:
+          improved = False
+          for i in range(1, len(route)-2):
+               for j in range(i+1, len(route)):
+                    if j-i == 1: continue # changes nothing, skip then
+                    new_route = route[:]
+                    new_route[i:j] = route[j-1:i-1:-1] # this is the 2woptSwap
+                    if get_route_distance(new_route) < get_route_distance(best):
+                         best = new_route
+                         improved = True
+          route = best
+     return best
+
+def get_route_distance(route):
+  output = 0
+  return output
