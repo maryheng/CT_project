@@ -54,9 +54,9 @@ def nn_v1(p, flags):
     for flag in flags:
       
       distance = get_distance(current_coord[0], current_coord[1], flag[2], flag[3])
-      current_eff = get_effieciency(flag[1], distance)
-      if current_eff >= highest_eff:
-        highest_eff = current_eff
+      # current_eff = get_effieciency(flag[1], distance)
+      if distance >= highest_eff:
+        highest_eff = distance
         chosen_i = i
       i+=1
     current_coord = [flags[chosen_i][2], flags[chosen_i][3]][:]
