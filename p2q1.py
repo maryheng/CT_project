@@ -15,8 +15,10 @@ def get_route(p, v, flags):
   # code here
   output = []
   output = nn_v1(p, flags)
+  print(get_route_distance(output))
   output = two_opt(output)
   output = deflag(output)
+  print(get_route_distance(output))
   print(output)
   return output
 
@@ -57,7 +59,7 @@ def nn_v1(p, flags):
         highest_eff = current_eff
         chosen_i = i
       i+=1
-    current_coord = [flags[chosen_i][2], flags[chosen_i][3]]
+    current_coord = [flags[chosen_i][2], flags[chosen_i][3]][:]
     current_point += float(flags[chosen_i][1])
     output.append(flags[chosen_i])
     flags.pop(chosen_i)
