@@ -55,8 +55,12 @@ def test_nn_v1(p, flags):
 
 #ref from https://stackoverflow.com/questions/30636014/how-to-order-a-list-of-points-by-distance-to-a-given-point/30636169
 def get_ordered_list(points, x, y):
-   points.sort(key = lambda p: ((float(p[2]) - float(x))**2 + (float(p[3]) - float(y))**2)**(1/2))
-   return points
+  #points.sort(key = lambda p: ((float(p[2]) - float(x))**2 + (float(p[3]) - float(y))**2)**(1/2))
+  #  points.sort(key = lambda p: float(p[1])/((float(p[2]) - float(x))**2 + (float(p[3]) - float(y))**2)**(1/2), reverse=True)
+  
+  points.sort(key = lambda p: get_distance(p[2],p[3],0,0))
+  # points.sort(key=lambda p: (-p[1]))
+  return points
 
 #code from http://pedrohfsd.com/2017/08/09/2opt-part1.html
 def two_opt(route):
