@@ -47,8 +47,8 @@ def test_nn_v1(p, flags):
   while (current_point < p):
     #insert function? 
     output.append(flags[i])
-    i += 1
     current_point += float(flags[i][1])
+    i += 1
   
   return output
 
