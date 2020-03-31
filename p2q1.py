@@ -14,7 +14,7 @@
 def get_route(p, v, flags):
   # code here
   output = []
-  output = nn_v1(p, flags)
+  output = test_nn_v1(p, flags)
   print(get_route_distance(output))
   output = two_opt(output)
   output = deflag(output)
@@ -38,33 +38,25 @@ def get_effieciency(distance, points):
   eff = float(points)/float(distance)
   return eff
 
-def nn_v1(p, flags):
+def test_nn_v1(p, flags):
   output = []
   current_point = 0
-  current_coord = [0,0]
-  highest_eff = 0
-  current_eff = 0
-
+  i=0
   #idk hahahha
+  flags = get_ordered_list(flags, 0 , 0)
   while (current_point < p):
     #insert function? 
-    i=0
-    chosen_i = 0
-
-    for flag in flags:
-      
-      distance = get_distance(current_coord[0], current_coord[1], flag[2], flag[3])
-      # current_eff = get_effieciency(flag[1], distance)
-      if distance >= highest_eff:
-        highest_eff = distance
-        chosen_i = i
-      i+=1
-    current_coord = [flags[chosen_i][2], flags[chosen_i][3]][:]
-    current_point += float(flags[chosen_i][1])
-    output.append(flags[chosen_i])
-    flags.pop(chosen_i)
+    output.append(flags[i])
+    i += 1
+    current_point += float(flags[i][1])
   
   return output
+
+
+#ref from https://stackoverflow.com/questions/30636014/how-to-order-a-list-of-points-by-distance-to-a-given-point/30636169
+def get_ordered_list(points, x, y):
+   points.sort(key = lambda p: ((float(p[2]) - float(x))**2 + (float(p[3]) - float(y))**2)**(1/2))
+   return points
 
 #code from http://pedrohfsd.com/2017/08/09/2opt-part1.html
 def two_opt(route):
