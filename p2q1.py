@@ -36,17 +36,17 @@ def get_route(p, v, flags):
   # print(output)
   return flagpool
 
-def create_route(flag_dict2, p, flag_dict):
-  output = []
-  point = 0
-  select = flag_dict2['sp']
-  while(point < p):
-    temp = min(select, key=lambda k:float(select[k]['distance']))
-    select = flag_dict2[temp]
-    output.append(temp)
-    point += flag_dict[temp][1]
+# def create_route(flag_dict2, p, flag_dict):
+#   output = []
+#   point = 0
+#   select = flag_dict2['sp']
+#   while(point < p):
+#     temp = min(select, key=lambda k:float(select[k]['distance']))
+#     select = flag_dict2[temp]
+#     output.append(temp)
+#     point += flag_dict[temp][1]
 
-  return output
+#   return output
 
 def get_next_flag_data(flags, flagpool, current_flag):
   output = []
