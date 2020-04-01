@@ -53,8 +53,9 @@ def get_next_flag_data(flags, flagpool, current_flag):
   for flag in flags:
     if flag[0] not in flagpool:
       dist = get_distance(flag, current_flag)
-      output.append([flag[0], dist, flag[1], flag[2], flag[3]])
-    output.sort(key=lambda x: (x[1]))
+      eff = get_effieciency(dist, flag[1])
+      output.append([flag[0], eff, flag[1], flag[2], flag[3]])
+    output.sort(key=lambda x: (-x[1]))
   return output
 
 def to_dict(flags):
