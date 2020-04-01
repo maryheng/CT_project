@@ -1,0 +1,45 @@
+# p2q1.py
+
+#### 1. get_route(p, v, flags)
+First, we will convert the list of lists of the flags into a dictionary.
+Complexity: O(N)
+``` The for loop will run N times (depending on the number of flags)```
+
+We have a current flag of ['sp', 0, 0, 0]
+
+#### 2. While loop to get minimum points
+
+Get next flag data:
+```
+Complexity: O(N)
+The for loop will run N times (depending on the number of flags) and check if flag is in flagpool.
+If not -> get_distance from current flag to that next flag
+       -> get_efficiency from that distance and points of the next flag
+       => Insert the next flag details to output array.
+
+Then, sort output array in descending order (dk whether got complexity???)
+and assigned it to the overall flag_data.
+```
+
+    2.1 Add flagID to current flagpool
+    2.2 Sum up points
+    2.3 Get current flag from temp[]
+
+### 3. Done with while loop --> 2opt the results and the original flag dicitionary
+```
+2opt -
+One two-opt move has time complexity of O(n^2).
+In one two opt move in the worst case we need to check for one broke edge e(n−2)
+and other edges that could be broken to improve the tour - thus the O(n).
+We need to check it for all the edges, therefore we get the equation n*O(n)=O(n^2)
+^ not rly sure
+```
+
+> Overall complexity = O(n^2) + O(N) + O(N)
+
+<hr>
+
+# p2q2.py
+https://stackoverflow.com/questions/36996713/travelling-salesman-with-multiple-salesmen-with-a-limit-on-number-of-cities-per/37097735
+
+https://stackoverflow.com/questions/36765695/find-all-simple-path-from-node-a-to-node-b-in-direct-weighted-graph-with-the-sum/36997645
