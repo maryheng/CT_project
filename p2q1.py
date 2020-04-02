@@ -16,11 +16,7 @@ def get_route(p, v, flags):
   output = []
   flagpool = []
   point = 0
-  # output = test_nn_v1(p, flags)
   flag_dict = to_dict(flags)
-  # flag_dict2 = to_dict2(flags, p)
-  # new_route = create_route(flag_dict2,p,flag_dict)
-  # select = flag_dict2['sp']
   currentflag = ['sp',0,0,0]
   
   flag_data = get_next_flag_data(flags, [], currentflag)
@@ -128,9 +124,6 @@ def get_distance(node_A, node_B):
   return ((float(node_A[2]) - float(node_B[2])) ** 2 + (float(node_A[3]) - float(node_B[3])) ** 2) ** 0.5
   # return sqrt(((float(node_A[2]) - float(node_B[2])) ** 2 + (float(node_A[3]) - float(node_B[3])) ** 2))
 
-# def get_distance2(node_A, node_B):
-#   return ((float(node_A[2-1]) - float(node_B[2-1])) ** 2 + (float(node_A[3-1]) - float(node_B[3-1])) ** 2) ** 0.5
-
 #gets points gained per distance AKA effieciency 
 def get_effieciency(distance, points):
   eff = float(points)/float(distance)
@@ -178,14 +171,6 @@ def two_opt(route, flag_dic):
 
 def get_route_distance(route, flag_dic):
   output = 0
-  # for i in range(len(route)-1):
-  #   output += get_distance(route[i], route[i+1])
-
-  # curr_flag = flag_dict[route[0][0]]
-  # for i in range(len(route)-1):
-  #   next_flag = flag_dict[route[i+1][0]]
-  #   output += get_distance2(curr_flag, next_flag)
-  #   curr_flag = next_flag
 
   current_temp = [route[0]] + flag_dic[route[0]]
   for i in range(len(route)-1):
@@ -193,20 +178,5 @@ def get_route_distance(route, flag_dic):
     output += get_distance(current_temp, next_temp)
     current_temp = next_temp
   output += get_distance(current_temp,next_temp)
-
-  
-
-  # current_flag = route[0][0]
-  # for i in range(1,len(route)):
-  #   next_flag = route[i][0]
-  #   output += flag_dict[current_flag][next_flag]['distance']
-  #   current_flag = next_flag
     
   return output
-
-
-# def deflag(flags):
-#   output = []
-#   for flag in flags:
-#     output.append(flag[0])
-#   return output
