@@ -15,24 +15,34 @@ def get_routes(p, v, flags, n):
   # code here
   # return [["F001", "F002", "F003"], ["F009", "F006"]]
   output = []
-
+  flag_dict = to_dict(flags)
   output = []
   flagpool = []
+  flagpool_temp = []
   point = 0
-  flag_dict = to_dict(flags)
-  currentflag = ['sp',0,0,0]
-  
-  flag_data = get_next_flag_data(flags, [], currentflag)
+  ave_p = float(p)/float(n)
+  counter = 0
 
-  while(point < p):
-    temp = get_next_flag_data(flags, flagpool, currentflag)[0]
-    flagpool.append(temp[0])
-    point += float(temp[2])
-    currentflag = [temp[0], temp[2], temp[3], temp[4]]
-  # print(output)
-  flag_pool = two_opt(output, flag_dict)
+  while(counter < n):
+    currentflag = ['sp',0,0,0]
+    individual_p = 0
+    flag_data = get_next_flag_data(flags, [], currentflag)
 
-  return [[]]*n
+    while(individual_p < ave_p):
+      print(flagpool)
+      temp = get_next_flag_data(flags, flagpool, currentflag)[0]
+      flagpool_temp.append(temp[0])
+      flagpool.append(temp[0])
+      individual_p += float(temp[2])
+      currentflag = [temp[0], temp[2], temp[3], temp[4]]
+    output.append(flagpool_temp)
+    flagpool_temp = []
+    counter += 1
+
+
+    print(flagpool)
+
+  return output
 
 def get_next_flag_data(flags, flagpool, current_flag):
   output = []

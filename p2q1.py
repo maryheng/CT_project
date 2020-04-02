@@ -27,8 +27,10 @@ def get_route(p, v, flags):
     point += float(temp[2])
     currentflag = [temp[0], temp[2], temp[3], temp[4]]
   # print(output)
-  flag_pool = two_opt(output, flag_dict)
+  
+  # flag_pool = two_opt(flagpool, flag_dict)
   # flag_pool = deflag(output)
+  print(flagpool)
   # print(output)
   return flagpool
 

@@ -8,7 +8,7 @@ import copy
 
 # replace these parameters with different csv file locations
 flags_csv = "./data/flags_r1.csv" # <-- change!!!!
-p = 100                           # <-- change!!!!
+p = 500                           # <-- change!!!!
 v = 2                             # <-- change!!!! 1 (non-cycle) or 2 (cycle)
 n = 2                             # <-- change!!!!
 
