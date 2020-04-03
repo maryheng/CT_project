@@ -1,5 +1,5 @@
-# <Your Team ID>
-# <Team members' names>
+# <G6T14>
+# <Mary Heng, Lim Zhan Rong>
 
 # project 2 Q2
 
