@@ -15,7 +15,7 @@ def get_routes(p, v, flags, n):
   # code here
   # return [["F001", "F002", "F003"], ["F009", "F006"]]
   output = []
-  flag_dict = to_dict(flags)
+  # flag_dict = to_dict(flags)
   output = []
   flagpool = []
   flagpool_temp = []
@@ -29,7 +29,6 @@ def get_routes(p, v, flags, n):
     flag_data = get_next_flag_data(flags, [], currentflag)
 
     while(individual_p < ave_p):
-      print(flagpool)
       temp = get_next_flag_data(flags, flagpool, currentflag)[0]
       flagpool_temp.append(temp[0])
       flagpool.append(temp[0])
@@ -39,8 +38,6 @@ def get_routes(p, v, flags, n):
     flagpool_temp = []
     counter += 1
 
-
-    print(flagpool)
 
   return output
 

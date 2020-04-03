@@ -16,7 +16,7 @@ def get_route(p, v, flags):
   output = []
   flagpool = []
   point = 0
-  flag_dict = to_dict(flags)
+  # flag_dict = to_dict(flags)
   currentflag = ['sp',0,0,0]
   
   flag_data = get_next_flag_data(flags, [], currentflag)
